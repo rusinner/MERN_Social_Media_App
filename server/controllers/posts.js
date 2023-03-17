@@ -18,7 +18,8 @@ export const createPost = async (req, res) => {
       comments: [],
     });
     await newPost.save();
-
+    //grab all the posts because we want add to frontend the previous
+    //with the latest post
     const post = await Post.find();
     res.status(201).json(post);
   } catch (err) {
